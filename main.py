@@ -1,5 +1,4 @@
 from itertools import combinations
-from collections import Counter
 
 class StringClass:
 
@@ -14,10 +13,6 @@ class StringClass:
         List = list(self.str1)
         return List
 
-# obj = StringClass('12314532')
-# print(obj.length())
-# print(obj.StringToList())
-
 class PairsPossible(StringClass):
     def possible_pairs(self):
         lis = StringClass.StringToList(self)
@@ -25,11 +20,6 @@ class PairsPossible(StringClass):
         Pair = [x for x in combinations(lis, group)]
         print(*Pair)
         return Pair
-
-    # def print_possible_pairs(self):
-    #     print(*self.Pair)
-
-
 
 class SearchCommonElements:
 
