@@ -1,19 +1,16 @@
-rows = 5
-k = 2 * rows - 2
-for i in range(0, rows):
-    for j in range(0, k):
-        print(end=" ")
-    k = k - 1
-    for j in range(0, i + 1):
-        print("* ", end="")
-    print("")
+#n = 5
+n = int(input("Enter the number of row: "))
 
-k = rows - 2
+for i in range(0,n):
+    for j in range(0,n-i-1):
+        print(" ",end=' ')
+    for k in range(0,2*i+1):
+        print("*",end=' ')
+    print()
 
-for i in range(rows, -1, -1):
-    for j in range(k, 0, -1):
-        print(end=" ")
-    k = k + 1
-    for j in range(0, i + 1):
-        print("* ", end="")
-    print("")
+for i in range(n-1,0,-1):
+    for j in range(n,i,-1):
+        print(" ",end=' ')
+    for k in range(2*i-1,0,-1):
+        print("*",end=' ')
+    print()
