@@ -24,9 +24,11 @@ class PairsPossible(StringClass):
         group = 2
         Pair = [x for x in combinations(lis, group)]
         print(*Pair)
+        return Pair
 
     # def print_possible_pairs(self):
     #     print(*self.Pair)
+
 
 
 class SearchCommonElements:
@@ -54,11 +56,11 @@ class SearchCommonElements:
 
 class EqualSumPairs():
 
-    def print_equal_sum_pairs(self,):
+    def print_equal_sum_pairs(self,lis):
 
         dict = {}
 
-        for pair in self.lis:
+        for pair in lis:
             pairs_list = list(pair)
             sum = 0
             for num in pairs_list:
@@ -75,16 +77,17 @@ class EqualSumPairs():
 
 
 obj1 = StringClass("12314532")
-print(obj1.length())
-print(obj1.StringToList())
+print("Length of String: ",obj1.length())
+print("String converted to list: ",obj1.StringToList())
 
-obj2 = PairsPossible("1357359")
-print(obj2.possible_pairs())
-# print(obj2.print_possible_pairs())
+obj2 = PairsPossible("13532783")
+print("Possible Pairs: ")
 lis = obj2.possible_pairs()
 
 obj3 = SearchCommonElements(obj1.str1, obj2.str1)
+print("Common elements: ")
 print(obj3.find_common())
 
 obj4 = EqualSumPairs()
+print("Equal sum Pair: ")
 obj4.print_equal_sum_pairs(lis)
