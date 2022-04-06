@@ -30,5 +30,5 @@ while True:
     else:
         raise FormulaError("Enter a valid Operator")
 
-    # Print the error
+    # Print the Result
     print(opr, "=", res)
