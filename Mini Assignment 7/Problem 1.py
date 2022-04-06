@@ -3,7 +3,7 @@ class FormulaError(Exception):
 
 
 while True:
-    opr = input("Enter the operation or enter 'exit' to exit:")
+    opr = input("Enter the operation or enter 'exit' to exit: ")
 
     lis = [i for i in opr.split()]
 
@@ -12,7 +12,7 @@ while True:
 
     # Check if there are 3 elements in the expression
     if len(lis) != 3:
-        raise FormulaError("Enter a valid Expression: ")
+        raise FormulaError("Enter a valid Expression")
 
     # Check if the operands are valid
     try:
@@ -20,7 +20,7 @@ while True:
         op2 = float(lis[2])
 
     except ValueError:
-        raise FormulaError("Enter a valid Operand: ")
+        raise FormulaError("Enter a valid Operand")
 
     # Check if the operator is valid
     if lis[1] == "+":
@@ -28,7 +28,7 @@ while True:
     elif lis[1] == "-":
         res = op1 - op2
     else:
-        raise FormulaError("Enter a valid Operator: ")
+        raise FormulaError("Enter a valid Operator")
 
     # Print the error
     print(opr, "=", res)
