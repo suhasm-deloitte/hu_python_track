@@ -5,7 +5,7 @@ def ratings():
 
         for i in range(len(movies)):
             rating = int(input("Enter Movie rating: "))
-            if rating < 1 or rating > 5:
+            if rating < 1 or rating > 10:
                 print("That's not a Valid number!")
                 continue
             break
