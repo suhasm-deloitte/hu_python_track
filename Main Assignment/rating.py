@@ -1,7 +1,7 @@
 def ratings():
     movies = ["RRR", "KGF", "HIT"]
     for movie in movies:
-        print("Rating For Movie: ", movie)
+        print("Rating For Movie:", movie)
 
         for i in range(len(movies)):
             rating = int(input("Enter Movie rating: "))
