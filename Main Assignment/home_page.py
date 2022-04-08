@@ -1,5 +1,4 @@
 import pandas as pd
-
 import base
 
 exit_val = False
@@ -20,13 +19,14 @@ while exit_val == False:
         user = input("User: ")
         password = input("Password: ")
         admin_user = base.login_func(user, password)
-        if admin_user != "invalid": login_status = True
+        if admin_user != "invalid":
+            login_status = True
 
     elif num == 2:
-        print("****Create new Account***** ")
+        print("****Create new Account*****")
         name, user_details = base.register_func()
         base.user_detail[name] = user_details
-        base.user_detail.to_csv("user.csv",index=False)
+        base.user_detail.to_csv("user.csv", index=False)
         continue
 
     elif num == 3:
@@ -43,7 +43,7 @@ while exit_val == False:
 
     while login_status:
         if admin_user == "admin":
-            print("1. Admin  Login:")
+            print("  Admin  Logged in  ")
             print("******Welcome Admin*******")
             print("1. Add new Movie Info \n"
                   "2. Edit Movie Info \n"
@@ -70,8 +70,8 @@ while exit_val == False:
                 if len(base.movie_file.columns) > 0:
                     title = input("Title of the movie to be deleted: ")
                     del base.movie_file[title]
-                    if len(base.movie_file.columns) > 0 :
-                        base.movie_file.to_csv("movies.csv", index=False)
+                    # if len(base.movie_file.columns) > 0:
+                    base.movie_file.to_csv("movies.csv", index=False)
 
                 else:
                     print("No movies to delete \n")
@@ -80,9 +80,12 @@ while exit_val == False:
             elif opt == 4:
                 login_status = False
 
+            else:
+                print("Enter a valid option \n")
+
         if admin_user == "user":
-            print("2. User Login")
-            print("******Welcome User1******* ")
+            print("  User Login  ")
+            print("******Welcome User1*******")
             file = pd.read_csv("movies.csv")
             movies = list(file.columns)
             if len(movies) == 0:
@@ -91,7 +94,7 @@ while exit_val == False:
                 continue
 
             if len(movies) > 1:
-                for i in range(1, len(movies), 1):
+                for i in range(0, len(movies), 1):
                     print(i, ". ", movies[i])
 
                 print((i + 1), ". ", "Logout")
@@ -101,4 +104,25 @@ while exit_val == False:
                 print("2 . Logout \n")
 
             movie = int(input("Enter movie: "))
+            if movie == 2:
+                login_status = False
+
+            print(movies[movie - 1])
             func = base.user_display(movies[movie - 1])
+            title = movies[movie - 1]
+
+            if func == 1:
+
+                base.book_ticket(title, user)
+                login_status = False
+
+            elif func == 2:
+
+                base.cancel_ticket(title, user)
+                login_status = False
+
+            elif func == 3:
+
+                print("******Welcome User1*******")
+                base.movie_rating(title)
+                login_status = False
