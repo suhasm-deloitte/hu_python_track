@@ -10,6 +10,3 @@ def ratings():
                 continue
             break
         print("*" * rating)
-
-
-ratings()
